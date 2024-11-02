@@ -1,0 +1,100 @@
+// Mixin template for typography
+@mixin typography(
+  $font-size,
+  $line-height,
+  $letter-spacing,
+  $font-weight: normal,
+  $font-family: "Helvetica Neue"
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  font-weight: $font-weight;
+  font-family: $font-family;
+}
+
+// Headings styles
+%heading-1 {
+  @include typography(12.8rem, 100%, 0px, normal, var(--font-family-recoleta));
+}
+
+%heading-2 {
+  @include typography(10rem, 100%, 0px, normal, var(--font-family-recoleta));
+}
+
+%heading-3 {
+  @include typography(7rem, 100%, 0px, normal, var(--font-family-recoleta));
+}
+
+%heading-4 {
+  @include typography(5rem, 100%, 0px, normal, var(--font-family-recoleta));
+}
+
+%heading-5 {
+  @include typography(3rem, 250%, 0px, normal, var(--font-family-recoleta));
+}
+
+%heading-6 {
+  @include typography(2.2rem, 120%, 0px, normal, var(--font-family-recoleta));
+}
+
+// Body text styles
+%body-1-regular {
+  @include typography(
+    1.6rem,
+    170%,
+    0px,
+    normal,
+    var(--font-family-helvetica-neue)
+  );
+}
+
+%body-1-medium {
+  @include typography(
+    1.6rem,
+    170%,
+    0px,
+    500,
+    var(--font-family-helvetica-neue)
+  );
+}
+
+%body-1-bold {
+  @include typography(
+    1.6rem,
+    170%,
+    0px,
+    bold,
+    var(--font-family-helvetica-neue)
+  );
+}
+
+%body-2-regular {
+  @include typography(
+    1.4rem,
+    170%,
+    0px,
+    normal,
+    var(--font-family-helvetica-neue)
+  );
+}
+
+%body-2-medium {
+  @include typography(
+    1.4rem,
+    175%,
+    0px,
+    500,
+    var(--font-family-helvetica-neue)
+  );
+}
+
+%body-2-bold {
+  @include typography(
+    1.4rem,
+    175%,
+    0px,
+    bold,
+    var(--font-family-helvetica-neue)
+  );
+}

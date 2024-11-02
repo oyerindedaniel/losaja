@@ -1,0 +1,76 @@
+@use "./variables" as vars;
+@use "./responsive" as resp;
+@use "./text" as txt;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  // user-select: none;
+}
+
+:root {
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  $vw: 100vw;
+  font-size: calc($vw / vars.$breakpoint-desktop * 10px);
+  margin: auto;
+  box-sizing: border-box;
+
+  color: vars.$black;
+  background-color: vars.$white;
+
+  @include resp.media("<tablet") {
+    font-size: calc($vw / vars.$breakpoint-tablet * 10px);
+  }
+
+  @include resp.media("<phone") {
+    font-size: calc($vw / vars.$breakpoint-phone * 10px);
+  }
+}
+
+body {
+}
+
+a {
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  // all: unset !important;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+[data-animation="paragraph"],
+[data-animation="title"] {
+  // overflow: hidden;
+
+  > span {
+    display: inline-flex;
+    overflow: hidden;
+  }
+
+  span span {
+    display: inline-flex;
+  }
+}

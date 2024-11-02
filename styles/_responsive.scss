@@ -1,0 +1,9 @@
+@use "./variables" as vars;
+
+$breakpoints: (
+  "phone": vars.$breakpoint-phone,
+  "tablet": vars.$breakpoint-tablet,
+  "desktop": vars.$breakpoint-desktop,
+) !default;
+
+@forward "../node_modules/include-media/dist/include-media";

@@ -1,0 +1,744 @@
+@use "./text" as txt;
+@use "./variables" as vars;
+@use "./mixins" as mixs;
+
+.home {
+  @extend %heading-6;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem 12rem;
+  background-color: vars.$white;
+
+  &__nav {
+    .header__menu {
+      @extend %body-2-regular;
+
+      padding: 2rem;
+
+      display: flex;
+      align-items: center;
+      background-color: vars.$white;
+
+      width: 45.8rem;
+      height: 5rem;
+      border-radius: 1rem;
+      gap: 5rem;
+      box-shadow: 0px 4px 15.5px -8px rgba(0, 0, 0, 0.25);
+      list-style: none;
+    }
+
+    .header__menu_item {
+      .header__link {
+        color: vars.$grey-2;
+        text-decoration: none;
+
+        // &:hover {
+        //   color: vars.$primary-color;
+        // }
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 0.5rem;
+
+    .header__icon_btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+
+      &--white {
+        @extend %dynamic-box-white;
+
+        background-color: vars.$white;
+      }
+
+      &--orange {
+        @extend %dynamic-box-orange;
+
+        background-color: vars.$primary-color;
+      }
+    }
+  }
+}
+
+// Main Content
+.main {
+}
+
+// Hero Section
+.hero {
+  background-color: vars.$white;
+  padding: 13.9rem 15rem;
+  text-align: center;
+
+  &__title {
+    @extend %heading-1;
+
+    margin-bottom: 3.5rem;
+
+    color: vars.$black;
+  }
+
+  &__subtitle {
+    &_container {
+      display: block;
+      border-radius: 3rem;
+      background-color: vars.$black;
+      display: flex;
+      align-items: center;
+
+      width: 99.8rem;
+      height: 14.4rem;
+      overflow: hidden;
+
+      padding: 2.6rem 0;
+
+      margin: auto;
+      position: relative;
+    }
+
+    &_sub-container {
+      height: 9.1rem;
+      width: 319.9rem;
+      position: relative;
+
+      @include mixs.infinite-scroll(12s);
+    }
+
+    &_text {
+      color: vars.$white;
+      @extend %heading-1;
+
+      margin-top: -0.7rem;
+    }
+  }
+
+  &__description {
+    margin: 6.5rem auto 12.8rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+
+    @extend %body-1-regular;
+
+    .hero__profile-pic {
+      display: flex;
+
+      .hero__profile-img {
+        border-radius: 50%;
+        object-fit: cover;
+
+        &:first-child {
+          margin-right: -1.5rem;
+        }
+      }
+    }
+
+    .hero__text {
+      color: vars.$black;
+      width: 36.5rem;
+
+      .hero__highlight {
+        color: vars.$primary-color;
+      }
+    }
+  }
+
+  &__scroll-note {
+    @extend %body-1-regular;
+
+    color: vars.$black;
+
+    &__dot {
+      color: vars.$primary-color;
+    }
+  }
+}
+
+.about {
+  padding: 8.2rem 11.9rem 5.2rem;
+  background-color: vars.$black;
+  color: vars.$white;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9.8rem;
+  }
+
+  &__intro-block {
+    width: 40.2rem;
+  }
+
+  &__title {
+    @extend %heading-5;
+
+    color: vars.$grey-3;
+  }
+
+  &__subtitle {
+    @extend %heading-2;
+    color: vars.$white;
+
+    span {
+      color: vars.$grey-2;
+    }
+  }
+
+  &__description {
+    @extend %body-1-regular;
+
+    font-weight: normal;
+    align-self: flex-end;
+
+    color: vars.$grey-3;
+    width: 40.5rem;
+    margin-bottom: -2rem;
+  }
+
+  &__features {
+    display: grid;
+    gap: 2.1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "shopping payment payment delivery"
+      "shopping payment payment delivery"
+      "shopping runners runners delivery"
+      "shopping runners runners delivery";
+  }
+
+  &__feature {
+    border-radius: 3rem;
+
+    &-title {
+      @extend %heading-6;
+
+      color: vars.$black;
+    }
+
+    &-description {
+      @extend %body-2-regular;
+
+      color: vars.$black;
+    }
+
+    &-content {
+      h3 {
+        margin-bottom: 3rem;
+      }
+    }
+
+    &--shopping {
+      padding: 10rem 4.15rem 4.1rem;
+
+      grid-area: shopping;
+      background-color: vars.$lilac;
+
+      width: 32.77rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &--payment {
+      padding: 4.1rem 4.15rem;
+
+      grid-area: payment;
+      background-color: vars.$baby-blue;
+
+      display: flex;
+      align-items: center;
+      gap: 4.9rem;
+    }
+
+    &--runners {
+      padding: 4.1rem 4.15rem;
+
+      grid-area: runners;
+      background-color: vars.$vanilla;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 2.9rem;
+    }
+
+    &--delivery {
+      padding: 10rem 4.15rem 4.1rem;
+
+      grid-area: delivery;
+      background-color: vars.$peach;
+
+      width: 32.77rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.services {
+  padding: 0 11.9rem;
+
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "intro intro individual individual group group"
+    "b2b b2b b2b curated curated curated";
+
+  &__intro {
+    padding: 6.5rem 0;
+    grid-area: intro;
+  }
+
+  //   &__intro-block {
+  //   width: 40.2rem;
+  // }
+
+  &__title {
+    @extend %heading-5;
+
+    color: vars.$grey-3;
+  }
+
+  &__subtitle {
+    @extend %heading-3;
+    color: vars.$grey-1;
+    margin-bottom: 3rem;
+
+    span {
+      color: vars.$black;
+    }
+  }
+
+  &__description {
+    @extend %body-1-regular;
+    color: vars.$black;
+  }
+
+  &__item {
+    padding: 6.5rem 4.1rem;
+
+    &-icon-container {
+      &--individual {
+        @include mixs.image-container(vars.$vanilla, 5.5rem);
+      }
+
+      &--group {
+        @include mixs.image-container(vars.$lilac, 5.5rem);
+      }
+
+      &--b2b {
+        @include mixs.image-container(vars.$baby-blue, 5.5rem);
+      }
+
+      &--curated {
+        @include mixs.image-container(vars.$peach, 5.5rem);
+      }
+    }
+
+    h3 {
+      @extend %heading-6;
+      margin-bottom: 3rem;
+    }
+
+    p {
+      @extend %body-2-regular;
+      color: vars.$grey-2;
+      margin-bottom: 3rem;
+    }
+
+    button {
+      @extend %button-dark;
+    }
+  }
+
+  &__item--individual {
+    grid-area: individual;
+  }
+
+  &__item--group {
+    grid-area: group;
+  }
+
+  &__content {
+    margin: auto;
+    width: 31.8rem;
+  }
+
+  &__item--b2b {
+    grid-area: b2b;
+  }
+
+  &__item--curated {
+    grid-area: curated;
+  }
+}
+
+.trusted-section {
+  padding: 10.8rem 0 0 0;
+  background-color: vars.$black;
+
+  &__header {
+    margin: auto;
+    width: 78.1rem;
+
+    margin-bottom: 11.2rem;
+  }
+
+  &__subtitle {
+    @extend %heading-6;
+
+    color: vars.$grey-3;
+  }
+
+  &__title {
+    @extend %heading-2;
+    margin-bottom: 3rem;
+
+    color: vars.$white;
+
+    span {
+      color: vars.$grey-2;
+    }
+  }
+
+  &__button {
+    @extend %button-primary;
+  }
+
+  &__logos {
+    grid-area: logos;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100px;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+  }
+}
+
+.faq-section {
+  padding: 9.1rem 11.9rem;
+  display: flex;
+  gap: 12.3rem;
+  justify-content: space-between;
+  background-color: vars.$white;
+
+  &__sidebar {
+    width: 45.2rem;
+
+    position: sticky;
+    top: 3rem;
+
+    align-self: flex-start;
+  }
+
+  &__title {
+    @extend %heading-5;
+    color: vars.$grey-3;
+
+    &-asked {
+      @extend %heading-2;
+      color: vars.$grey-2;
+    }
+
+    &-questions {
+      @extend %heading-2;
+      color: vars.$grey-1;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 5rem;
+    color: vars.$black;
+
+    @extend %body-1-regular;
+  }
+
+  &__contact {
+    color: vars.$primary-color;
+    text-decoration: none;
+
+    @extend %body-1-medium;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Subscribe Section */
+.subscribe-section {
+  display: flex;
+  justify-content: center;
+
+  background-color: vars.$white;
+
+  &__box {
+    border-radius: 3rem;
+    padding: 3.9rem 5.8rem;
+    width: 120.1rem;
+    color: vars.$white;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid vars.$white-2;
+
+    margin: auto;
+  }
+
+  &__header {
+    width: 59.6rem;
+  }
+
+  &__title {
+    @extend %heading-6;
+
+    color: vars.$black;
+  }
+
+  &__text {
+    color: vars.$grey-2;
+    margin-top: 2rem;
+
+    @extend %body-2-regular;
+  }
+
+  &__button {
+    @extend %button-dark;
+  }
+}
+
+/* Social Media Links Section */
+.social-section {
+  padding: 3.1rem 11.9rem;
+
+  margin-top: 18.2rem;
+
+  background-color: vars.$white-3;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6.8rem;
+
+  &__message-icon {
+    margin-bottom: 2.5rem;
+
+    width: fit-content;
+  }
+
+  &__subscribe {
+    width: 40.7rem;
+    height: fit-content;
+
+    border-radius: 3rem;
+
+    background-color: vars.$black;
+
+    padding: 3.1rem 4.4rem;
+
+    margin-top: -16rem;
+  }
+
+  &__title {
+    text-align: left;
+    @extend %heading-4;
+    color: vars.$white;
+    margin-bottom: 3rem;
+
+    &-span {
+      @extend %heading-6;
+
+      margin-bottom: 1.5rem;
+
+      color: vars.$grey-3;
+      display: block;
+    }
+
+    &--subscribe {
+      width: 24.4rem;
+    }
+
+    &--follow {
+      color: vars.$black;
+    }
+  }
+
+  &__text {
+    color: vars.$grey-3;
+
+    @extend %body-2-regular;
+  }
+
+  &__button {
+    @extend %button-primary;
+
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 2.5rem;
+  }
+
+  &__form {
+    display: flex;
+
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__input {
+    width: 100%;
+    height: 6rem;
+
+    display: block;
+    border: none;
+    border-radius: 1rem;
+
+    color: vars.$grey-2;
+
+    background-color: transparent;
+
+    @extend %body-2-regular;
+
+    padding: 0 2rem;
+
+    border: 1px solid vars.$grey-1;
+
+    // flex: 1;
+  }
+
+  &__disclaimer {
+    color: vars.$grey-3;
+
+    @extend %body-2-regular;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  &__follow {
+    flex: 1;
+  }
+
+  &__icon {
+    width: 20.8rem;
+    height: 20.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &--instagram {
+      background-color: vars.$pink;
+      color: vars.$white;
+    }
+
+    &--twitter {
+      background-color: vars.$black;
+      color: vars.$white;
+    }
+
+    &--email {
+      background-color: vars.$white;
+      color: vars.$black;
+    }
+  }
+}
+
+.footer {
+  &__content {
+    margin-top: 5rem;
+    @extend %body-2-regular;
+    display: flex;
+
+    justify-content: space-between;
+  }
+
+  &__brand {
+    color: vars.$primary-color;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  &__link {
+    color: vars.$black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: vars.$grey-2;
+    }
+  }
+}
+
+.about-section {
+  background-color: vars.$black;
+
+  display: flex;
+  align-items: center;
+
+  height: 23.2rem;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  &__box {
+    height: 9.1rem;
+    width: 434.6rem;
+    position: relative;
+
+    @include mixs.infinite-scroll(8s);
+
+    h2 {
+      @extend %heading-1;
+      color: vars.$grey-1;
+
+      margin-top: -0.7rem;
+    }
+  }
+}
