@@ -1,6 +1,6 @@
-import React from "react";
+import { logos } from "@/constants";
 import Image from "next/image";
-import { logos } from "@/pages/constants";
+import React from "react";
 import styles from "./logos.module.scss";
 
 const LogoGrid: React.FC = () => {

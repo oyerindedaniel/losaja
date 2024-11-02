@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { faqData } from "./constants";
+import { faqData } from "../constants";
 
 const helveticaNeue = localFont({
   src: [
