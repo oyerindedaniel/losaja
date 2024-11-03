@@ -23,7 +23,7 @@ export default class HomeAnimation extends Component {
 
   private initObserver() {
     this.observer = new IntersectionObserver(this.handleIntersection, {
-      threshold: 0.25,
+      threshold: 0.5,
     });
     this.observeElements();
   }
@@ -65,13 +65,17 @@ export default class HomeAnimation extends Component {
 
     const elementLinesSpans = element.querySelectorAll("span span");
 
+    gsap.set(elementLinesSpans, {
+      autoAlpha: 1,
+    });
+
     gsap.fromTo(
       elementLinesSpans,
       { y: "100%", autoAlpha: 0 },
       {
         y: "0%",
-        autoAlpha: 1.2,
         ease: "power3.out",
+        autoAlpha: 1,
         stagger: 0.5,
         duration: 1,
       }
@@ -81,12 +85,8 @@ export default class HomeAnimation extends Component {
   private animateTitleOut(element: HTMLElement) {
     const elementLinesSpans = element.querySelectorAll("span span");
 
-    gsap.to(elementLinesSpans, {
-      // y: "100%",
+    gsap.set(elementLinesSpans, {
       autoAlpha: 0,
-      ease: "power3.in",
-      stagger: 0.5,
-      duration: 1,
     });
   }
 
@@ -99,13 +99,17 @@ export default class HomeAnimation extends Component {
 
     const elementWordsSpans = element.querySelectorAll("span span");
 
+    gsap.set(elementWordsSpans, {
+      autoAlpha: 1,
+    });
+
     gsap.fromTo(
       elementWordsSpans,
-      { y: "50%", autoAlpha: 0 },
+      { y: "100%" },
       {
         y: "0%",
-        autoAlpha: 1,
         ease: "expo.out",
+        autoAlpha: 1,
         stagger: 0.06,
         duration: 0.75,
       }
@@ -115,12 +119,8 @@ export default class HomeAnimation extends Component {
   private animateParagraphOut(element: HTMLElement) {
     const elementWordsSpans = element.querySelectorAll("span span");
 
-    gsap.to(elementWordsSpans, {
-      // y: "50%",
+    gsap.set(elementWordsSpans, {
       autoAlpha: 0,
-      ease: "power2.in",
-      stagger: 0.08,
-      duration: 0.75,
     });
   }
 

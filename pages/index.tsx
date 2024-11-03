@@ -171,12 +171,12 @@ export default function Home() {
                 <h2
                   className={`${styles.hero__subtitle_text} ${styles["scroll-item-primary"]}`}
                 >
-                  Running Errands Made Easy{"-"}
+                  Running Errands Made Easy.
                 </h2>
                 <h2
                   className={`${styles.hero__subtitle_text} ${styles["scroll-item-secondary"]}`}
                 >
-                  Running Errands Made Easy
+                  Running Errands Made Easy.
                 </h2>
               </div>
             </div>
@@ -207,7 +207,6 @@ export default function Home() {
                   new way of shopping.
                 </span>
                 <span data-animation="paragraph">
-                  {" "}
                   Our dedicated runners handle your errands, so you can reclaim
                   your time.
                 </span>
@@ -229,15 +228,13 @@ export default function Home() {
                 <h2 data-animation="title" className={styles["about__title"]}>
                   About
                 </h2>
-                <h3 className={styles["about__subtitle"]}>
-                  <span data-animation="title">What</span>
-                  <br />
-                  <span data-animation="title"> We </span>
-                  <span
-                    data-animation="title"
-                    className={styles["about__highlight"]}
-                  >
-                    Do
+                <h3
+                  data-animation="title"
+                  className={styles["about__subtitle"]}
+                >
+                  What <br />{" "}
+                  <span className={styles["about__subtitle-highlight"]}>
+                    We Do
                   </span>
                 </h3>
               </div>
@@ -495,12 +492,16 @@ export default function Home() {
               >
                 Trusted by
               </p>
-              <h1
+              <h2
                 data-animation="title"
                 className={styles["trusted-section__title"]}
               >
-                200+ Companies <span> & Individuals</span>
-              </h1>
+                200+ Companies
+                <br />
+                <span className={styles["trusted-section__title-span"]}>
+                  & Individuals
+                </span>
+              </h2>
               <button className={styles["trusted-section__button"]}>
                 Register with us today →
               </button>
@@ -512,22 +513,19 @@ export default function Home() {
           </section>
           <section className={styles["faq-section"]}>
             <div className={styles["faq-section__sidebar"]}>
-              <h2 className={styles["faq-section__title"]}>
-                <span data-animation="title">Frequently</span>
+              <p
+                data-animation="paragraph"
+                className={styles["faq-section__title-sub"]}
+              >
+                Frequently
+              </p>
+              <h2
+                data-animation="title"
+                className={styles["faq-section__title"]}
+              >
+                Asked
                 <br />
-                <span
-                  data-animation="title"
-                  className={styles["faq-section__title-asked"]}
-                >
-                  Asked
-                </span>
-                <br />
-                <span
-                  data-animation="title"
-                  className={styles["faq-section__title-questions"]}
-                >
-                  Questions
-                </span>
+                <span>Questions</span>
               </h2>
               <p
                 data-animation="paragraph"
@@ -584,27 +582,14 @@ export default function Home() {
                   unoptimized
                 />
               </div>
-              <h3
+              <div
                 className={`${styles["social-section__title"]} ${styles["social-section__title--subscribe"]}`}
+                data-animation="title"
               >
-                <span
-                  data-animation="title"
-                  className={`${styles["social-section__title-span"]}`}
-                >
-                  Subscribe to
-                </span>
-                <span
-                  data-animation="title"
-                  className={`${styles["social-section__title-newsletter"]}`}
-                >
-                  Our Newsletter
-                </span>
-              </h3>
-
-              <p
-                data-animation="paragraph"
-                className={styles["social-section__text"]}
-              >
+                <p>Subscribe to</p>
+                <h3>Our Newsletter</h3>
+              </div>
+              <p className={styles["social-section__text"]}>
                 Stay up to date on market prices and related news when you sign
                 up to our newsletter.
               </p>

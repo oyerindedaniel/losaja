@@ -106,8 +106,10 @@
 
     &_sub-container {
       height: 9.1rem;
-      width: 319.9rem;
+      width: 400.9rem;
       position: relative;
+      display: flex;
+      gap: 2rem;
 
       @include mixs.infinite-scroll(12s);
     }
@@ -187,10 +189,10 @@
 
   &__subtitle {
     @extend %heading-2;
-    color: vars.$white;
+    color: vars.$grey-2;
 
-    span {
-      color: vars.$grey-2;
+    span:not(:first-of-type) {
+      color: vars.$white;
     }
   }
 
@@ -308,10 +310,6 @@
     grid-area: intro;
   }
 
-  //   &__intro-block {
-  //   width: 40.2rem;
-  // }
-
   &__title {
     @extend %heading-5;
 
@@ -412,11 +410,10 @@
   &__title {
     @extend %heading-2;
     margin-bottom: 3rem;
-
     color: vars.$white;
 
-    span {
-      color: vars.$grey-2;
+    span:not(:last-of-type) {
+      color: vars.$grey-3;
     }
   }
 
@@ -459,18 +456,17 @@
     align-self: flex-start;
   }
 
-  &__title {
+  &__title-sub {
     @extend %heading-5;
     color: vars.$grey-3;
+  }
 
-    &-asked {
-      @extend %heading-2;
-      color: vars.$grey-2;
-    }
+  &__title {
+    @extend %heading-2;
+    color: vars.$grey-2;
 
-    &-questions {
-      @extend %heading-2;
-      color: vars.$grey-1;
+    span:not(:first-child) {
+      color: vars.$black;
     }
   }
 
@@ -574,25 +570,27 @@
   }
 
   &__title {
-    text-align: left;
-    @extend %heading-4;
-    color: vars.$white;
-    margin-bottom: 3rem;
-
-    &-span {
-      @extend %heading-6;
-
-      margin-bottom: 1.5rem;
-
-      color: vars.$grey-3;
-      display: block;
-    }
-
     &--subscribe {
       width: 24.4rem;
+      margin-bottom: 3rem;
+
+      p {
+        @extend %heading-6;
+        margin-bottom: 1.5rem;
+        color: vars.$grey-3;
+      }
+
+      h3 {
+        @extend %heading-4;
+
+        color: vars.$white;
+      }
     }
 
     &--follow {
+      @extend %heading-4;
+      margin-bottom: 1.5rem;
+
       color: vars.$black;
     }
   }

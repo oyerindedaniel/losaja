@@ -63,14 +63,23 @@ svg {
 
 [data-animation="paragraph"],
 [data-animation="title"] {
-  // overflow: hidden;
-
-  > span {
-    display: inline-flex;
+  span {
+    display: inline-block;
     overflow: hidden;
-  }
-
-  span span {
-    display: inline-flex;
+    vertical-align: top;
   }
 }
+
+// [data-animation="paragraph"],
+// [data-animation="title"] {
+//   overflow: hidden;
+
+//   > span {
+//     display: inline-flex;
+//     overflow: hidden;
+//   }
+
+//   span span {
+//     display: inline-flex;
+//   }
+// }
